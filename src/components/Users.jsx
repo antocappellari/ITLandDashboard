@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+const BASE_URL = 'http://localhost:3001'
 export const Users = () => {
   const [users, setUsers] = useState([]);
 
@@ -8,11 +8,10 @@ export const Users = () => {
   }, []);
 
   const getAllUsers = () => {
-    fetch("http://localhost:3001/api/users")
+    fetch(BASE_URL + "/api/users")
       .then((response) => response.json())
-      .then((data) => setUsers(data.data));
+      .then((data) => {setUsers(data.data)});
   };
-  console.log(users);
   return (
     <div>
       <div>
@@ -23,11 +22,12 @@ export const Users = () => {
         list users:
         <div>{
             users.map(user => {
-                return 
-                <p key={user.id}>{user.image}</p>;
-                <p key={user.id}>{user.first_name}</p>;
-                <p key={user.id}>{user.last_name}</p>;
-                <p key={user.id}>{user.email}</p>
+                return <div key={user.id}>
+                <img src={`${BASE_URL}/images/users/${user.image}`} alt={user.name} width={150}/>
+                <p>{user.first_name}</p>
+                <p >{user.last_name}</p>
+                <p >{user.email}</p>
+                </div>
             })
             }</div>
       </div>

@@ -1,4 +1,3 @@
-
 import './App.css'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -7,6 +6,7 @@ import { BrowserRouter,Routes ,Route} from 'react-router-dom'
 import { Products } from './components/Products'
 import { Users } from './components/Users'
 import { Categories } from './components/Categories'
+
 
 function App() {
 
